@@ -1,3 +1,11 @@
+# Digital Jalebi Assignment
+## Submitted by : Yogya Sharma - 500095628
+### Installation - (Run code on your Local Machine)
+1. Clone the repository
+2. Run npm i to install dependencies
+3. Run npm start to start the application
+4. To view a live demo click here: https://informativejalebi.netlify.app
+   
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
