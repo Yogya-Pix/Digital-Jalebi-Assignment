@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Navbar from './Components/Navbar/Navbar';
 import Spinner from 'react-bootstrap/Spinner';
+import './App.css'
 
 
 
@@ -49,11 +50,11 @@ function App() {
         <h1 className='text-center mt-4'>Digital Jalebi By Yogya Sharma</h1>
 
         <Form>
-          <InputGroup className='my-3'>
+          <InputGroup className='my-5'>
 
             <Form.Control
               onChange={(e) => setSearch(e.target.value)}
-              placeholder='Search'
+              placeholder='Search by first name'
             />
 
             <Button variant="primary" onClick={handleSearch}>Search</Button>
@@ -71,23 +72,23 @@ function App() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Profile Picture</th>
-              <th>Username</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Phone</th>
+              <th className='listItems'>Profile Picture</th>
+              <th className='listItems'>Username</th>
+              <th className='listItems'>First Name</th>
+              <th className='listItems'>Last Name</th>
+              <th className='listItems'>Email</th>
+              <th className='listItems'>Phone</th>
             </tr>
           </thead>
           <tbody>
             {(searchResults.length > 0 ? searchResults : user).map((item, index) => (
               <tr key={index}>
-                <td><img src={item.image} alt="User" style={{ width: '50px', height: '50px' }} /></td>
-                <td>{item.username}</td>
-                <td>{item.firstName}</td>
-                <td>{item.lastName}</td>
-                <td>{item.email}</td>
-                <td>{item.phone}</td>
+                <td className='listItems'><img src={item.image} alt="User" style={{ width: '50px', height: '50px' }} /></td>
+                <td className='listItems'>{item.username}</td>
+                <td className='listItems'>{item.firstName}</td>
+                <td className='listItems'>{item.lastName}</td>
+                <td className='listItems'>{item.email}</td>
+                <td className='listItems'>{item.phone}</td>
               </tr>
             ))}
           </tbody>
