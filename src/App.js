@@ -16,6 +16,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [user, setUser] = useState([])
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
 
 
   const handleSearch = () => {
@@ -27,6 +29,12 @@ function App() {
     setSearchResults(filteredResults);
   };
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const currentItems = (searchResults.length > 0 ? searchResults : user).slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     fetch('https://dummyjson.com/users')
@@ -57,7 +65,7 @@ function App() {
               placeholder='Search by first name'
             />
 
-            <Button variant="primary" onClick={handleSearch}>Search</Button>
+            <Button className="search-button" variant="primary" onClick={handleSearch}>Search</Button>
           </InputGroup>
         </Form>
 
@@ -68,6 +76,8 @@ function App() {
             </Spinner>
           </div>
         )}
+
+
         <div className='table-responsive'>
           <Table striped bordered hover>
             <thead>
@@ -81,7 +91,8 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {(searchResults.length > 0 ? searchResults : user).map((item, index) => (
+
+              {currentItems.map((item, index) => (
                 <tr key={index}>
                   <td className='listItems'><img src={item.image} alt="User" style={{ width: '50px', height: '50px' }} /></td>
                   <td className='listItems'>{item.username}</td>
@@ -94,6 +105,18 @@ function App() {
             </tbody>
           </Table>
         </div>
+
+
+        <div className="pagination">
+          <button onClick={() => paginate(currentPage - 1)} className="pagination-button" disabled={currentPage === 1}>
+            Previous
+          </button>
+          <button onClick={() => paginate(currentPage + 1)} className="pagination-button" disabled={currentPage === Math.ceil((searchResults.length > 0 ? searchResults.length : user.length) / itemsPerPage)}>
+            Next
+          </button>
+        </div>
+
+
       </Container>
     </div>
   );
