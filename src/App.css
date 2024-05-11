@@ -1,3 +1,55 @@
 .listItems {
     text-align: center;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.pagination-button {
+    background-color: black;
+    font-size: 14px;
+    height: 44px;
+    width: 88px;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #6c757d;
+}
+
+.pagination-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.pagination-button:disabled:hover {
+    background-color: #6c757d;
+}
+
+.search-button {
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #6c757d;
+}
+
+.search-button:active,
+.search-button:focus {
+    outline: none;
+    background-color: #6c757d;
+}
