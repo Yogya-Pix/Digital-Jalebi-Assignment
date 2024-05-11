@@ -68,31 +68,32 @@ function App() {
             </Spinner>
           </div>
         )}
-
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th className='listItems'>Profile Picture</th>
-              <th className='listItems'>Username</th>
-              <th className='listItems'>First Name</th>
-              <th className='listItems'>Last Name</th>
-              <th className='listItems'>Email</th>
-              <th className='listItems'>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(searchResults.length > 0 ? searchResults : user).map((item, index) => (
-              <tr key={index}>
-                <td className='listItems'><img src={item.image} alt="User" style={{ width: '50px', height: '50px' }} /></td>
-                <td className='listItems'>{item.username}</td>
-                <td className='listItems'>{item.firstName}</td>
-                <td className='listItems'>{item.lastName}</td>
-                <td className='listItems'>{item.email}</td>
-                <td className='listItems'>{item.phone}</td>
+        <div className='table-responsive'>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th className='listItems'>Profile Picture</th>
+                <th className='listItems'>Username</th>
+                <th className='listItems'>First Name</th>
+                <th className='listItems'>Last Name</th>
+                <th className='listItems'>Email</th>
+                <th className='listItems'>Phone</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {(searchResults.length > 0 ? searchResults : user).map((item, index) => (
+                <tr key={index}>
+                  <td className='listItems'><img src={item.image} alt="User" style={{ width: '50px', height: '50px' }} /></td>
+                  <td className='listItems'>{item.username}</td>
+                  <td className='listItems'>{item.firstName}</td>
+                  <td className='listItems'>{item.lastName}</td>
+                  <td className='listItems'>{item.email}</td>
+                  <td className='listItems'>{item.phone}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       </Container>
     </div>
   );
